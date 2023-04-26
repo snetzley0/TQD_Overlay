@@ -1,0 +1,195 @@
+.App {
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.topRibbon {
+  /*border: 1px solid green;
+  position: absolute;
+  width: 100%;
+  height: 10%;*/
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.testBarBox {
+  background: black;
+  border: 1px dotted white;
+}
+
+.filter {
+  filter: invert(76%) sepia(34%) saturate(0%) hue-rotate(226deg) brightness(87%) contrast(93%);
+}
+.filter-green {
+  filter: invert(80%) sepia(14%) saturate(5229%) hue-rotate(73deg) brightness(93%) contrast(124%);
+}
+.filter-white {
+  filter: invert(100%);
+}
+.backgroundblue {
+  background: #eda600;
+}
+.backgroundorng {
+  background: #2d9ffc;
+}
+
+.filter-blue {
+  filter: invert(11%) sepia(100%) saturate(5973%) hue-rotate(246deg) brightness(80%) contrast(146%);
+}
+
+.contenthere {
+  
+  bottom: 50%;
+}
+
+.fixit {
+  display: flex;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+}
+
+.blueeventcard {
+  display: flex; 
+  justify-content: center;
+  opacity: 0;
+  width: 0px;
+  height: 41px;
+  margin-left: .2em;
+  transition: opacity 0.2s ease, width 0.5s ease, display 0.2s ease, margin-left 0.5s ease 0.2s;
+}
+
+.blueeventcard.visible {
+  opacity: 1;
+  width: 41px;
+
+}
+
+.blueeventcard.visible.out { 
+  width: 0px;
+  display: hidden;
+  margin-left: 0em;
+}
+
+.orngeventcard {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  width: 0px;
+  height: 41px;
+  margin-right: 0.2em;
+  transition: opacity 0.2s ease, width 0.5s ease, display 0.2s ease, margin-right 0.5s ease 0.2s;
+}
+
+.orngeventcard.visible {
+  opacity: 1;
+  width: 41px;
+  
+}
+
+.orngeventcard.visible.out { 
+  width: 0px;
+  display: hidden;
+  margin-right: 0em;
+}
+
+.staticons {
+  width: 41px;
+  height: 41px;
+}
+
+
+.fade-in-event {
+  animation: fadeIn 2s;
+  animation: fadeOut 1s 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; right: 20%; }
+  100% { opacity: 1; right: 0%; }
+}
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+.try1 {
+  position: absolute; 
+  left: 20%;
+  bottom: 30%;
+  border: 1px dashed green;
+
+  display: flex;
+  
+}
+
+.try2 {
+  border: 1px dashed blue;
+  margin-right: 5px;
+  width: 100px;
+  transition: width 1s ease;
+}
+
+.try2.two {
+  width: 0;
+}

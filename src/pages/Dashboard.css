@@ -1,0 +1,25 @@
+.dash {
+    font-size: 160%;
+}
+
+.cattitle {
+    margin-top: 30px;
+    font-size: 140%;
+}
+
+.dash-footer {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+.dash-gamescore {
+    
+}
+
+.dash-button {
+
+    height: 40px;
+    width: 100px;
+}
+
