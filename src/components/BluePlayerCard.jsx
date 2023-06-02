@@ -1,24 +1,6 @@
 
-import {useEffect} from 'react';
-
 import BluePlayerCardDesign from '../design/BluePlayerCardDesign';
-
-import assist from '../stat-icons/assist.svg';
-import demolition from '../stat-icons/demolition.svg';
-import epicsave from '../stat-icons/epic-save.svg';
-import extermination from '../stat-icons/extermination.svg';
-import goal from '../stat-icons/goal.svg';
-import hattrick from '../stat-icons/hat-trick.svg';
-import playmaker from '../stat-icons/playmaker.svg';
-import save from '../stat-icons/save.svg';
-import savior from '../stat-icons/savior.svg';
-import shotongoal from '../stat-icons/shot-on-goal.svg';
-
-import EventArray from '../stores/EventArray';
-import isEmpty from '../functions/isEmpty';
-import BlueEventCard from './BlueEventCard';import EventCard2 from './EventCard2';
-
-
+import BlueEventCard from './BlueEventCard';
 
 const BluePlayerCard = (props) => {
     const { player, statfeed, prevstatfeed } = props;

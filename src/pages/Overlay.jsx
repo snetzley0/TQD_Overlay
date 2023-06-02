@@ -5,13 +5,9 @@ import BluePlayerCard from '../components/BluePlayerCard';
 import OrangePlayerCard from '../components/OrangePlayerCard';
 import TargetPlayerBoost from '../components/TargetPlayerBoost';
 import ReplayCard from '../components/ReplayCard';
-import Clock from '../components/Clock';
 import TargetPlayer from '../components/TargetPlayer';
-import EventCard from '../components/BlueEventCard';
-import EventArray from '../stores/EventArray';
+import EventArray from '../custom-arrays/EventArray';
 import ScoreBug from '../components/ScoreBug';
-import BlueEvent from '../components/BlueEvent';
-
 import TQDIconOrng from '../components/TQDIconOrng'
 import TQDIconBlue from '../components/TQDIconBlue'
 
@@ -21,39 +17,6 @@ const isEmpty = (obj) => {
     !Object.entries(obj || {}).length
   );
 }
-
-// Hook
-function usePrevious(value) {
-  // The ref object is a generic container whose current property is mutable ...
-  // ... and can hold any value, similar to an instance property on a class
-  const ref = useRef();
-  // Store current value in ref
-  useEffect(() => {
-    ref.current = value;
-  }, [value]); // Only re-run if value changes
-  // Return previous value (happens before update in useEffect above)
-  return ref.current;
-}
-
-function isNewStatFeed(statfeedstate, prevstatfeed) {
-  return (statfeedstate != prevstatfeed);
-}
-
-function createEventCard(value) {
-  return <EventCard event={value}/>
-}
-
-
-
-function statFeedManager(array, event) {
-  return(array.push(event));
-}
-
-/*function compareNames( a, b) {
-  if ( a.name < b.name ){ return -1 }
-  if ( a.name > b.name ){ return 1 }
-  return 0;
-}*/
 
 let nextId = 0;
 
@@ -210,30 +173,5 @@ function Overlay() {
   </>
   );
 }
-
-/*
-<div className="App">
-      <div className='blueteam'>
-        {!isEmpty(gamestate.players) && 
-          Object.values(gamestate.players).filter(p => p.team.toString() == 0).sort((a,b) => (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1 ).map((el,index) => {
-            return <BluePlayerCard player={Object.values(gamestate.players).filter(p => p.team.toString() == 0).sort((a,b) => (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1 )[index]} statfeed={test} prevstatfeed={newtest}/>;
-          })
-        }
-        {!isEmpty(gamestate.players) && tqdtoggles[0] === true && <TQDIconBlue/>}
-      </div>
-      <div className='orangeteam'>
-        {!isEmpty(gamestate.players) && 
-          Object.values(gamestate.players).filter(p => p.team.toString() == 1).sort((a,b) => (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1 ).map((el,index) => {
-            return <OrangePlayerCard player={Object.values(gamestate.players).filter(p => p.team.toString() == 1).sort((a,b) => (a.name.toUpperCase() > b.name.toUpperCase()) ? 1 : -1 )[index]} statfeed={test}/>;
-          })
-        }
-        {!isEmpty(gamestate.players) && tqdtoggles[1] === true && <TQDIconOrng/>}
-      </div>
-      {!isEmpty(gamestate.game) && <ScoreBug game={gamestate.game} teamnames={teamnames} score={gamescore} matchscore={matchscore} matchtype={matchtype} tqdtoggles={tqdtoggles}/>}
-      {!isEmpty(gamestate.game) && gamestate.game.game.isReplay && <ReplayCard stats={latestgoal} target={gamestate.game.game.target}/>}
-      {!isEmpty(gamestate.game) && !isEmpty(gamestate.game.game.target) && <TargetPlayer targetPlayer={gamestate.players[gamestate.game.game.target.toString()]} tqdtoggles={tqdtoggles}/>}
-      {!isEmpty(gamestate.game) && !isEmpty(gamestate.game.game.target) && <TargetPlayerBoost boost={gamestate.players[gamestate.game.game.target.toString()].boost}/>}
-  </div>
-*/
 
 export default Overlay;
