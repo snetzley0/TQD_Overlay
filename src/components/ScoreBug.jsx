@@ -42,13 +42,13 @@ const ScoreBug = (props) => {
         </style>
         <div className='sizeTest'>
             
-            <div className='scorebug'><ScoreBugD time={<Clock game_seconds={game.game.time_seconds} isOT={game.game.isOT}/>} teamnames={teamnames} score={score} isOT={game.game.isOT} matchscore={matchscore} matchtype={matchtype} tqdtoggles={tqdtoggles}/></div>
+            <div className='scorebug'><ScoreBugD time={<Clock game_seconds={game.game.time_seconds} isot={game.game.isOT}/>} teamnames={teamnames} score={score} isot={game.game.isOT} matchscore={matchscore} matchtype={matchtype} tqdtoggles={tqdtoggles}/></div>
         </div>
         </>
     )
 }
 
-//<Clock game_seconds={game.game.time_seconds} isOT={game.game.isOT}/>
+//<Clock game_seconds={game.game.time_seconds} isot={game.game.isot}/>
 
 export default ScoreBug;
 

@@ -14,6 +14,7 @@ function Dashboard() {
     const [matchtype, setMatchType] = useState('Best of 7');
     const [tqdtoggles, setTQDToggles] = useState([0, 0]);
     const [onlyscorebugtoggle, setOnlyScorebugToggle] = useState(false);
+    const [replayreviewtoggle, setReplayReviewToggle] = useState(false);
 
 
     socket.on('payload', (message) => {
@@ -66,13 +67,10 @@ function Dashboard() {
     useEffect(() => {
         socket.emit('payload', {name: 'OnlyScorebug Toggle', data: onlyscorebugtoggle})
     },[onlyscorebugtoggle])
-    //const increasebluematch = () => props.setMatchScore([matchscore[0] + 1, matchscore[1]]);
-    //const increaseorngmatch = () => props.setMatchScore([matchscore[0], matchscore[1] + 1]);
-    //const decreasebluematch = () => props.setMatchScore([matchscore[0] - 1, matchscore[1]]);
-    //const decreaseorngmatch = () => props.setMatchScore([matchscore[0], matchscore[1] - 1]);  onClick={increasebluematch} matchScoreChange()
-    /*useEffect(() => {
-        props.setMatchScore([bluematchscore, matchscore[1]+3])
-      }, [bluematchscore]);*/
+
+    useEffect(() => {
+        socket.emit('payload', {name: 'ReplayReview Toggle', data: replayreviewtoggle})
+    },[replayreviewtoggle])
 
     return (
         <>
@@ -117,12 +115,20 @@ function Dashboard() {
         <button type="button" className="dash-button" onClick={decreaseornggoal} >Orange - 1</button> 
 
         <div className="cattitle">Misc.</div>
-        <label>Only use scorebug: 
+        <label title="Toggle to turn off the rest of the overlay besides the scorebug. 
+        Intended for 1v1s, or any scenario where the user wants to control 
+        the camera and give commentary w/o the in-game Director cam.">Only use scorebug: 
         <input type="checkbox" checked={onlyscorebugtoggle} onChange={() => setOnlyScorebugToggle(!onlyscorebugtoggle)}/>
+        </label>
+        <div/>
+        <label title="Toggles the overlay for use in replays.
+         This mode will break if toggled on DURING a replay, must be done before.
+          Turn off for regular broadcast use.">Replay review mode:  
+        <input type="checkbox" checked={replayreviewtoggle} onChange={() => setReplayReviewToggle(!replayreviewtoggle)}/>
         </label>
         </div>
         
-        <div className="dash-footer">TQD Overlay version 1.0<br/>Stray#9840</div>
+        <div className="dash-footer">TQD Overlay version 1.0<br/>@straylasting on Discord</div>
         </>
     );
 }

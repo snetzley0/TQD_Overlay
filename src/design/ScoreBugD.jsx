@@ -2,7 +2,7 @@ import Clock from '../components/Clock';
 import TQDIcon from '../icons/TQD Default Transparent Cleanup.png';
 
 const ScoreBugD = (props) => {
-    const { time, teamnames, score, isOT, matchscore, matchtype, tqdtoggles } = props;
+    const { time, teamnames, score, isot, matchscore, matchtype, tqdtoggles } = props;
 
     /*
     width: 918.255
@@ -242,7 +242,7 @@ const ScoreBugD = (props) => {
                 l -12 -12
                 z"
             />
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontSize: "20px",
@@ -259,7 +259,7 @@ const ScoreBugD = (props) => {
                 {matchscore[0]}
                 </tspan>
             </text>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontSize: "20px",
@@ -421,7 +421,7 @@ const ScoreBugD = (props) => {
             }
             <path
                 style={{
-                fill: isOT? "#ad1a1a":"#000",
+                fill: isot? "#ad1a1a":"#000",
                 fillOpacity: 1,
                 strokeWidth: 1.926282,
                 transform: "translate(0px,-1px)",
@@ -450,7 +450,7 @@ const ScoreBugD = (props) => {
         */}
             <line x1="294" y1="0" x2="294" y2="72" stroke="white" style={{strokeWidth: 1.4}}/>
             <line x1="623" y1="0" x2="623" y2="72" stroke="white" style={{strokeWidth: 1.4}}/>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -467,7 +467,7 @@ const ScoreBugD = (props) => {
                 {teamnames[0]}
                 </tspan>
             </text>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -484,7 +484,7 @@ const ScoreBugD = (props) => {
                 {teamnames[1]}
                 </tspan>
             </text>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -501,7 +501,7 @@ const ScoreBugD = (props) => {
                 {score[0]}
                 </tspan>
             </text>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -518,7 +518,7 @@ const ScoreBugD = (props) => {
                 {score[1]}
                 </tspan>
             </text>
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -536,7 +536,7 @@ const ScoreBugD = (props) => {
                 </tspan>
             </text>
 
-            <text text-anchor="middle"
+            <text textAnchor="middle"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
@@ -550,7 +550,7 @@ const ScoreBugD = (props) => {
                 y={93}
             >
                 <tspan>
-                {isOT? 'Overtime': matchtype}
+                {isot? 'Overtime': matchtype}
                 </tspan>
             </text>
             

@@ -8,8 +8,9 @@ import ReplayCard from '../components/ReplayCard';
 import TargetPlayer from '../components/TargetPlayer';
 import EventArray from '../custom-arrays/EventArray';
 import ScoreBug from '../components/ScoreBug';
-import TQDIconOrng from '../components/TQDIconOrng'
-import TQDIconBlue from '../components/TQDIconBlue'
+import TQDIconOrng from '../components/TQDIconOrng';
+import TQDIconBlue from '../components/TQDIconBlue';
+import PostGameStats from '../components/PostGameStats';
 
 const isEmpty = (obj) => {
   return (
@@ -30,6 +31,7 @@ function Overlay() {
   const [gamescore, setGameScore] = useState([0, 0]);
   const [matchscore, setMatchScore] = useState([0, 0]);
   const [onlyscorebugtoggle, setOnlyScorebugToggle] = useState(false);
+  const [replayreviewtoggle, setReplayReviewToggle] = useState(false);
   
   const eventarray = new EventArray();
   let prevstatarray = new Array();
@@ -128,15 +130,20 @@ function Overlay() {
       if (dashboardMessage.name === 'OnlyScorebug Toggle') {
         setOnlyScorebugToggle(dashboardMessage.data);
       }
+      if (dashboardMessage.name === 'ReplayReview Toggle') {
+        setReplayReviewToggle(dashboardMessage.data);
+      }
     });
     //eslint-disable-next-line
   },[]);
   
   return (
     <>
-    {!isEmpty(gamestate.game) && (
-
+    {(!isEmpty(gamestate.game)) && (
+      
     <div className="App">
+      {/* testing end game stats */}
+      {gamestate.game.game.hasWinner && <PostGameStats players={gamestate.players}/>}
 
       {<ScoreBug game={gamestate.game} teamnames={teamnames} score={gamescore} matchscore={matchscore} matchtype={matchtype} tqdtoggles={tqdtoggles}/>}
       
@@ -159,8 +166,10 @@ function Overlay() {
           {!isEmpty(gamestate.players) && tqdtoggles[1] === true && <TQDIconOrng/>}
         </div>
 
-        {gamestate.game.game.isReplay && <ReplayCard stats={latestgoal} target={gamestate.game.game.target}/>}
-      {!isEmpty(gamestate.game.game.target) && <TargetPlayer targetPlayer={gamestate.players[gamestate.game.game.target.toString()]} tqdtoggles={tqdtoggles}/>}
+          
+
+        {!replayreviewtoggle && gamestate.game.game.isReplay && <ReplayCard stats={latestgoal} target={gamestate.game.game.target}/>}
+      {!isEmpty(gamestate.game.game.target) && <TargetPlayer targetplayer={gamestate.players[gamestate.game.game.target.toString()]} tqdtoggles={tqdtoggles}/>}
       {!isEmpty(gamestate.game.game.target) && <TargetPlayerBoost boost={gamestate.players[gamestate.game.game.target.toString()].boost}/>} 
         </>
         )}

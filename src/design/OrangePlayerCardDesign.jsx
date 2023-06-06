@@ -37,11 +37,12 @@ const OrangePlayerCardDesign = (props) => {
                 {boost}
                 </tspan>
             </text>  
-            <text text-anchor="end"
+            <text textAnchor="end"
                 xmlSpace="preserve"
                 style={{
                 fontWeight: 400,
-                fontSize: "18px",
+                // adjusts font size proportionally when text length is over 17
+                fontSize: name.length>17? (18*(17/name.length))+"px" : "18px",
                 fontFamily: "sans-serif",
                 InkscapeFontSpecification: "'sans-serif, Normal'",
                 fill: "#fff",

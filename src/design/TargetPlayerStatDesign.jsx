@@ -1,8 +1,8 @@
 import TQDIcon from '../icons/TQD Default Transparent Cleanup.png';
 
 const TargetPlayerStatDesign = (props) => {
-  const {targetPlayer, tqdtoggles} = props;
-  const isOrng = targetPlayer.team;
+  const {targetplayer, tqdtoggles} = props;
+  const isOrng = targetplayer.team;
   return (
     <svg 
     width={100+'%'}
@@ -119,7 +119,7 @@ const TargetPlayerStatDesign = (props) => {
             strokeOpacity: 1,
             transition: 'width 0.12s'
           }}
-          width={260.885 * targetPlayer.boost/100}
+          width={260.885 * targetplayer.boost/100}
           height={4.368}
           x={15.174}
           y={1063.762}
